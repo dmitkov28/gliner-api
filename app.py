@@ -1,7 +1,7 @@
 import os
 from typing import List, Optional
 
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Request, Response
 from pydantic import BaseModel
 
 from model import default_labels, model
@@ -18,18 +18,20 @@ class Input(BaseModel):
 app = FastAPI()
 
 
-@app.get("/health")
-def health():
-    return Response(status_code=200)
+@app.get("/ping")
+def ping():
+    status = 200 if model else 404
+    return Response(status_code=status)
 
 
-@app.post("/predict")
-def predict(input_: Input):
-    labels = input_.labels if input_.labels else default_labels
+@app.post("/invocations")
+async def invocations(request: Request):
+    input_ = await request.json()
+    labels = input_.get("labels", default_labels)
 
-    if input_.keywords:
+    if input_.get("keywords"):
         predictions = model.batch_predict_entities(
-            input_.keywords, labels, threshold=0.5, flat_ner=True
+            input_.get("keywords"), labels, threshold=0.5, flat_ner=True
         )
         if predictions:
             return predictions
