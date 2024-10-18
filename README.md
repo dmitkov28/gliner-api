@@ -58,8 +58,8 @@ uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 
 Docker:
 ```
-docker build -t gliner-api .
-docker run -d --rm -p 8000:8000 gliner-api
+docker build -t gliner-api -f Dockerfile.AWSLambda
+docker run -d --rm -p 8080:8080 gliner-api
 ```
 
 > [!NOTE]  
