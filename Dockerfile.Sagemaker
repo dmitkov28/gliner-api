@@ -1,0 +1,22 @@
+FROM python:3.12.1-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+
+ENV PYTHONUNBUFFERED=1
+
+ENV TRANSFORMERS_CACHE=/tmp/huggingface
+
+ENV HF_HOME=/tmp/huggingface
+
+WORKDIR /opt/program
+
+EXPOSE 8080
+
+COPY . .
+
+RUN chmod +x serve
+
+ENV PATH="/opt/program:${PATH}"
+
+ENTRYPOINT [ "serve" ]
+    
