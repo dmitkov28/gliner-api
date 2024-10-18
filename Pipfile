@@ -9,6 +9,8 @@ ruff = "*"
 nltk = "*"
 fastapi = "*"
 uvicorn = "*"
+boto3 = "*"
+requests-aws4auth = "*"
 
 [dev-packages]
 
