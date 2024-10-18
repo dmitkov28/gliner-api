@@ -1,0 +1,6 @@
+data.json
+model.safetensors
+.python-version
+.ruff*
+__pycache__
+.DS_Store
