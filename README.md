@@ -62,10 +62,16 @@ docker build -t gliner-api -f Dockerfile.AWSLambda
 docker run -d --rm -p 8080:8080 gliner-api
 ```
 
+## Deployment
+
+To deploy on AWS Sagemaker, use the [Dockerfile.Sagemaker](./Dockerfile.Sagemaker)
+Here's a short writeup on how to do it: [https://dimitarmitkov.com/blog/ner-rest-api/](https://dimitarmitkov.com/blog/ner-rest-api/)
+
+AWS Lambda is also an option, though the experience isn't nearly as smooth (see [Dockerfile.AWSLambda](./Dockerfile.AWSLambda))
+
 > [!NOTE]  
-> To build the container, the following additional files are needed:
+> To build the container, you'll need the following file:
 > - model.safetensors [https://huggingface.co/urchade/gliner_medium-v2.1/tree/main?show_file_info=model.safetensors](https://huggingface.co/urchade/gliner_medium-v2.1/tree/main?show_file_info=model.safetensors)
-> - coat_tiny_Opset18.onnx [https://github.com/DiscreteTom/onnx-on-aws-lambda-arm64/blob/main/hello_world/coat_tiny_Opset18.onnx](https://github.com/DiscreteTom/onnx-on-aws-lambda-arm64/blob/main/hello_world/coat_tiny_Opset18.onnx)
 
 
 - GLiner Repo: [https://github.com/urchade/GLiNER](https://github.com/urchade/GLiNER)
