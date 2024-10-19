@@ -2,7 +2,7 @@
 
 This repo contains a dead-simple REST API utilizing the GLiNER model
 
-It has a single endpoint `/predict`, which takes in POST requests in the following format:
+It has an endpoint `/invocations`, which takes in POST requests in the following format:
 ```json
 {
     "keywords": ["keyword 1", "keyword 2", "keyword 3"]
