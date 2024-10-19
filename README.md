@@ -61,10 +61,10 @@ Docker:
 docker build -t gliner-api -f Dockerfile.AWSLambda
 docker run -d --rm -p 8080:8080 gliner-api
 ```
-
 ## Deployment
 
 To deploy on AWS Sagemaker, use the [Dockerfile.Sagemaker](./Dockerfile.Sagemaker)
+
 Here's a short writeup on how to do it: [https://dimitarmitkov.com/blog/ner-rest-api/](https://dimitarmitkov.com/blog/ner-rest-api/)
 
 AWS Lambda is also an option, though the experience isn't nearly as smooth (see [Dockerfile.AWSLambda](./Dockerfile.AWSLambda))
